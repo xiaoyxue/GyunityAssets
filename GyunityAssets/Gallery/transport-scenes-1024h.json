@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "renderer_repository": "xiaoyxue/Gyunity",
+  "settings": {
+    "height": 1024,
+    "width_rule": "round(native_width * 1024 / native_height)",
+    "samples_per_pixel": 512,
+    "max_depth": 10,
+    "accelerator": "bvh",
+    "output": "8-bit RGB PNG, compressed by the native renderer writer"
+  },
+  "notes": [
+    "These are newly generated Gyunity renders, not supplied reference images.",
+    "Original scene geometry, camera, lighting and native aspect ratios were retained; images were not resized from earlier renders.",
+    "CornellBoxStandard and the Veach scene archives include CC0 source licenses.",
+    "Matpreview uses explicit native copper, glass and diffuse exterior overrides; native copper is not source plastic.",
+    "The Matpreview source archive has no license file. Its raw/derived geometry, source environment and supplied reference images are not included.",
+    "Residual Monte Carlo noise, MIS fireflies and glass/caustic speckles remain. Readable 8-bit PNGs do not establish linear-HDR finiteness.",
+    "The five PT images retain their original source revision. Veach bidir was rendered after the standalone BDPT fix in xiaoyxue/Gyunity#154."
+  ],
+  "images": [
+    {
+      "file": "CornellBoxStandard-path-1024x1024-spp512-depth10.png",
+      "scene": "CornellBoxStandard",
+      "integrator": "path",
+      "native_dimensions": [1024, 1024],
+      "dimensions": [1024, 1024],
+      "source_commit": "a654c1496a4bbf1bd1c4de15be84e4a5c4dfc47d",
+      "renderer_sha256": "6ec7609c25b6a64c2a8d579fac754f1bf7d480cacb8be54e5dc2c4055e7e33e7",
+      "native_scene_sha256": "3cfd990b4eb3ba5bd7a712cfced9fa313ac843552a425cbc6262991f8b53283c",
+      "size_bytes": 1431800,
+      "sha256": "b3e39a8d9c5696a1fa77c26634f6d25690c047acd8cf53824752696cbf24d014"
+    },
+    {
+      "file": "veach-mis-path-1820x1024-spp512-depth10.png",
+      "scene": "veach-mis",
+      "integrator": "path",
+      "native_dimensions": [1280, 720],
+      "dimensions": [1820, 1024],
+      "source_commit": "a654c1496a4bbf1bd1c4de15be84e4a5c4dfc47d",
+      "renderer_sha256": "6ec7609c25b6a64c2a8d579fac754f1bf7d480cacb8be54e5dc2c4055e7e33e7",
+      "native_scene_sha256": "e90a65f530e11e2cee897f523e0fa6ff78b6064065e66b2f5640df7db15ff5da",
+      "size_bytes": 2073231,
+      "sha256": "4a9923878024295c487684185cab5e2bb9340a0f7b6fc4589ae2f9918a4446d1"
+    },
+    {
+      "file": "veach-bidir-bdpt-1024x1024-spp512-depth10.png",
+      "scene": "veach-bidir",
+      "integrator": "bdpt",
+      "native_dimensions": [1024, 1024],
+      "dimensions": [1024, 1024],
+      "source_commit": "6f777fd77cf7bb7b342f471275f6fbc36b5cf61a",
+      "bdpt_fix_commit": "09f68fd3b336ce334d397877d76272d108359508",
+      "renderer_sha256": "588118b241590af8e500f0d00dd9ad7db4310a4c429f74ff90a42424ed26a168",
+      "native_scene_sha256": "3ba244772734689a2f454daecfa036232e7308970cd6d6261ac4e54600f795a9",
+      "size_bytes": 1625815,
+      "sha256": "feaa2b8de6d9300bf3a3c75f38bce7b05399f27b4c86831f77e1e12ce70c48c4"
+    },
+    {
+      "file": "matpreview-copper-path-1366x1024-spp512-depth10.png",
+      "scene": "matpreview-copper",
+      "integrator": "path",
+      "native_dimensions": [683, 512],
+      "dimensions": [1366, 1024],
+      "source_commit": "a654c1496a4bbf1bd1c4de15be84e4a5c4dfc47d",
+      "renderer_sha256": "6ec7609c25b6a64c2a8d579fac754f1bf7d480cacb8be54e5dc2c4055e7e33e7",
+      "native_scene_sha256": "62990661bda728d9b06261243aa759abb8a0b91cb796de981b2fff067fb94624",
+      "size_bytes": 2577185,
+      "sha256": "bb525c0f7e33819f6bcd6507102ea27c4796c4af5a4cdf3038e7372b0f3b6457"
+    },
+    {
+      "file": "matpreview-glass-path-1366x1024-spp512-depth10.png",
+      "scene": "matpreview-glass",
+      "integrator": "path",
+      "native_dimensions": [683, 512],
+      "dimensions": [1366, 1024],
+      "source_commit": "a654c1496a4bbf1bd1c4de15be84e4a5c4dfc47d",
+      "renderer_sha256": "6ec7609c25b6a64c2a8d579fac754f1bf7d480cacb8be54e5dc2c4055e7e33e7",
+      "native_scene_sha256": "dee7168ced8cdc0dbe70fb5e4bdda4a4c426f79989db624eeb60969b95433cb1",
+      "size_bytes": 2745065,
+      "sha256": "a35982bd7e39606d65b5a7ed07da206d537ae4a4acba4f1e65f6729c4b465047"
+    },
+    {
+      "file": "matpreview-diffuse-path-1366x1024-spp512-depth10.png",
+      "scene": "matpreview-diffuse",
+      "integrator": "path",
+      "native_dimensions": [683, 512],
+      "dimensions": [1366, 1024],
+      "source_commit": "a654c1496a4bbf1bd1c4de15be84e4a5c4dfc47d",
+      "renderer_sha256": "6ec7609c25b6a64c2a8d579fac754f1bf7d480cacb8be54e5dc2c4055e7e33e7",
+      "native_scene_sha256": "36638e0e15c4750fd578f36109aaa599c3eb48afa85a2b045bfd183d0031d564",
+      "size_bytes": 2545781,
+      "sha256": "4a82a8fd1a78e94bcfb93f7935cfa4f9519e3c3d979bc888e4e8ae38f1c3371e"
+    }
+  ]
+}
