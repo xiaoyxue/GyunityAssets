@@ -1,0 +1,336 @@
+{
+  "schema_version": 2,
+  "renderer_repository": "xiaoyxue/Gyunity",
+  "settings": {
+    "height": 1024,
+    "samples_per_pixel": 512,
+    "accelerator": "bvh"
+  },
+  "notes": [
+    "Five existing PT PNGs are retained byte-for-byte with their original source revisions and hashes: CornellBoxStandard, Veach MIS, Matpreview copper, glass and diffuse.",
+    "Three generated PNGs supplement the five retained originals: Veach bidir uses source 75b53a619f7de2621b9033685cd1bf373befd609 after the BDPT shading-normal fix; rough glass uses 2a14c1666cfffe429ded2ac201badd8a9c5389e0 after the microfacet fix; smooth plastic uses 52c322216a1fc88fbaf1eb215308af95a9397848, integrated into main by merge 1d807461a30131f17474ef372a83b41572a3bc59.",
+    "Depth, reconstruction filter, display mapping and material/normal settings are per-image. Veach bidir uses depth 7 with ACES plus native sRGB; the seven PT images use depth 10 with native legacy gamma 2.2.",
+    "Original geometry, cameras, lighting and native aspect ratios were retained. Images were rendered at the recorded dimensions, without resizing, denoising or reference-image substitution.",
+    "The original Matpreview archive includes no license file. Its raw/derived geometry, source environment and supplied reference images are not redistributed; only generated PNGs are included.",
+    "Matpreview materials are explicit native overrides. Plastic is the native Mitsuba-style smooth layered model with Kd=(0.24,0.771,0.361), Ks=(1,1,1), interior IOR 1.9, exterior IOR 1.000277 and nonlinear=false (linear diffuse compensation). Its PNG is a native Gyunity render, not a Mitsuba/reference image or a claim of pixel-identical reference output.",
+    "Linear Float32 HDR renders are retained locally for the three new images only and were verified finite/nonnegative. No linear-HDR validation is claimed for the five retained PNGs.",
+    "Residual Monte Carlo noise, fireflies and caustic speckles remain. No exposure adjustment was applied to the two new Matpreview images.",
+    "CornellBoxStandard and the Veach scene archives include CC0 source licenses. Earlier gallery files and transport-scenes-1024h.json remain unchanged."
+  ],
+  "images": [
+    {
+      "file": "CornellBoxStandard-path-1024x1024-spp512-depth10.png",
+      "scene": "CornellBoxStandard",
+      "integrator": "path",
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_commit": "a654c1496a4bbf1bd1c4de15be84e4a5c4dfc47d",
+      "renderer_sha256": "6ec7609c25b6a64c2a8d579fac754f1bf7d480cacb8be54e5dc2c4055e7e33e7",
+      "native_scene_sha256": "3cfd990b4eb3ba5bd7a712cfced9fa313ac843552a425cbc6262991f8b53283c",
+      "size_bytes": 1431800,
+      "sha256": "b3e39a8d9c5696a1fa77c26634f6d25690c047acd8cf53824752696cbf24d014",
+      "max_depth": 10,
+      "spp": 512,
+      "accelerator": "bvh",
+      "display": {
+        "path": "native ImageIO::WriteImage",
+        "gamma": 2.2,
+        "encoding": "legacy power gamma, not sRGB",
+        "formula": "uint8(pow(clamp(linear,0,1),1/2.2f)*255+0.5f)",
+        "tonemap": "none",
+        "exposure_scale": 1,
+        "denoise": false,
+        "resize": false,
+        "png_compression": "native stb_image_write lossless"
+      },
+      "filter": "tent"
+    },
+    {
+      "scene": "veach-bidir",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "source_commit": "75b53a619f7de2621b9033685cd1bf373befd609",
+      "renderer_sha256": "54d21f1eb20c70cde658f13f0f5e58ac45fd31728652723fe3c550c025379e42",
+      "native_scene_sha256": "3ba244772734689a2f454daecfa036232e7308970cd6d6261ac4e54600f795a9",
+      "size_bytes": 1825569,
+      "sha256": "40ee8c5f750525ec239dbe15df1f5aea0ba7a0cff10b49191080c489999a439e",
+      "integrator": "bdpt",
+      "spp": 512,
+      "max_depth": 7,
+      "accelerator": "bvh",
+      "filter": "tent",
+      "display": {
+        "tonemap": "aces",
+        "scale": 1,
+        "encoding": "native sRGB",
+        "denoise": false,
+        "resize": false
+      },
+      "material_override": null,
+      "bdpt_normals": "shading",
+      "file": "veach-bidir-bdpt-shading-1024x1024-spp512-depth7-aces.png"
+    },
+    {
+      "file": "veach-mis-path-1820x1024-spp512-depth10.png",
+      "scene": "veach-mis",
+      "integrator": "path",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "dimensions": [
+        1820,
+        1024
+      ],
+      "source_commit": "a654c1496a4bbf1bd1c4de15be84e4a5c4dfc47d",
+      "renderer_sha256": "6ec7609c25b6a64c2a8d579fac754f1bf7d480cacb8be54e5dc2c4055e7e33e7",
+      "native_scene_sha256": "e90a65f530e11e2cee897f523e0fa6ff78b6064065e66b2f5640df7db15ff5da",
+      "size_bytes": 2073231,
+      "sha256": "4a9923878024295c487684185cab5e2bb9340a0f7b6fc4589ae2f9918a4446d1",
+      "max_depth": 10,
+      "spp": 512,
+      "accelerator": "bvh",
+      "display": {
+        "path": "native ImageIO::WriteImage",
+        "gamma": 2.2,
+        "encoding": "legacy power gamma, not sRGB",
+        "formula": "uint8(pow(clamp(linear,0,1),1/2.2f)*255+0.5f)",
+        "tonemap": "none",
+        "exposure_scale": 1,
+        "denoise": false,
+        "resize": false,
+        "png_compression": "native stb_image_write lossless"
+      },
+      "filter": "tent"
+    },
+    {
+      "file": "matpreview-copper-path-1366x1024-spp512-depth10.png",
+      "scene": "matpreview-copper",
+      "integrator": "path",
+      "native_dimensions": [
+        683,
+        512
+      ],
+      "dimensions": [
+        1366,
+        1024
+      ],
+      "source_commit": "a654c1496a4bbf1bd1c4de15be84e4a5c4dfc47d",
+      "renderer_sha256": "6ec7609c25b6a64c2a8d579fac754f1bf7d480cacb8be54e5dc2c4055e7e33e7",
+      "native_scene_sha256": "62990661bda728d9b06261243aa759abb8a0b91cb796de981b2fff067fb94624",
+      "size_bytes": 2577185,
+      "sha256": "bb525c0f7e33819f6bcd6507102ea27c4796c4af5a4cdf3038e7372b0f3b6457",
+      "max_depth": 10,
+      "spp": 512,
+      "accelerator": "bvh",
+      "display": {
+        "path": "native ImageIO::WriteImage",
+        "gamma": 2.2,
+        "encoding": "legacy power gamma, not sRGB",
+        "formula": "uint8(pow(clamp(linear,0,1),1/2.2f)*255+0.5f)",
+        "tonemap": "none",
+        "exposure_scale": 1,
+        "denoise": false,
+        "resize": false,
+        "png_compression": "native stb_image_write lossless"
+      },
+      "filter": "gaussian"
+    },
+    {
+      "file": "matpreview-glass-path-1366x1024-spp512-depth10.png",
+      "scene": "matpreview-glass",
+      "integrator": "path",
+      "native_dimensions": [
+        683,
+        512
+      ],
+      "dimensions": [
+        1366,
+        1024
+      ],
+      "source_commit": "a654c1496a4bbf1bd1c4de15be84e4a5c4dfc47d",
+      "renderer_sha256": "6ec7609c25b6a64c2a8d579fac754f1bf7d480cacb8be54e5dc2c4055e7e33e7",
+      "native_scene_sha256": "dee7168ced8cdc0dbe70fb5e4bdda4a4c426f79989db624eeb60969b95433cb1",
+      "size_bytes": 2745065,
+      "sha256": "a35982bd7e39606d65b5a7ed07da206d537ae4a4acba4f1e65f6729c4b465047",
+      "max_depth": 10,
+      "spp": 512,
+      "accelerator": "bvh",
+      "display": {
+        "path": "native ImageIO::WriteImage",
+        "gamma": 2.2,
+        "encoding": "legacy power gamma, not sRGB",
+        "formula": "uint8(pow(clamp(linear,0,1),1/2.2f)*255+0.5f)",
+        "tonemap": "none",
+        "exposure_scale": 1,
+        "denoise": false,
+        "resize": false,
+        "png_compression": "native stb_image_write lossless"
+      },
+      "filter": "gaussian"
+    },
+    {
+      "scene": "matpreview-rough-glass",
+      "dimensions": [
+        1366,
+        1024
+      ],
+      "native_dimensions": [
+        683,
+        512
+      ],
+      "source_commit": "2a14c1666cfffe429ded2ac201badd8a9c5389e0",
+      "renderer_sha256": "e12c86016868a1a468a882f34a5726f6da42a1094d1f61584a4eed476e1798ca",
+      "native_scene_sha256": "9236c1700dc1b360caf40a1713e19b2a80e2ab531d566926808aafd474907e9a",
+      "size_bytes": 2592113,
+      "sha256": "7e55c74cc7d80a3c664ef4757de45a9506d76d97cfd06ae61a59e87465e8e1c6",
+      "integrator": "path",
+      "spp": 512,
+      "max_depth": 10,
+      "accelerator": "bvh",
+      "filter": "gaussian",
+      "display": {
+        "path": "native ImageIO::LoadImage -> ImageIO::WriteImage",
+        "gamma": 2.2,
+        "encoding": "legacy power gamma, not sRGB",
+        "formula": "uint8(pow(clamp(linear,0,1),1/2.2f)*255+0.5f)",
+        "tonemap": "none",
+        "exposure_scale": 1,
+        "denoise": false,
+        "resize": false,
+        "png_compression": "native stb_image_write lossless"
+      },
+      "material_override": {
+        "eta_inside": 1.9,
+        "reflection": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "roughness": [
+          0.1,
+          0.1
+        ],
+        "transmission": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "type": "rough_dielectric",
+        "distribution": "ggx",
+        "eta_outside": 1.0,
+        "roughness_semantics": "artist roughness; native RoughDielectric",
+        "material_id": "bsdf-matpreview",
+        "microfacet_sampling": "GGX visible normals",
+        "roughness_mapping": "Native GGXDistribution::RoughnessToAlpha polynomial of log(max(roughness,0.001)); not direct alpha"
+      },
+      "filter_parameters": {
+        "standard_deviation": 0.5,
+        "radius": 2.0
+      },
+      "file": "matpreview-rough-glass-path-1366x1024-spp512-depth10.png"
+    },
+    {
+      "file": "matpreview-diffuse-path-1366x1024-spp512-depth10.png",
+      "scene": "matpreview-diffuse",
+      "integrator": "path",
+      "native_dimensions": [
+        683,
+        512
+      ],
+      "dimensions": [
+        1366,
+        1024
+      ],
+      "source_commit": "a654c1496a4bbf1bd1c4de15be84e4a5c4dfc47d",
+      "renderer_sha256": "6ec7609c25b6a64c2a8d579fac754f1bf7d480cacb8be54e5dc2c4055e7e33e7",
+      "native_scene_sha256": "36638e0e15c4750fd578f36109aaa599c3eb48afa85a2b045bfd183d0031d564",
+      "size_bytes": 2545781,
+      "sha256": "4a82a8fd1a78e94bcfb93f7935cfa4f9519e3c3d979bc888e4e8ae38f1c3371e",
+      "max_depth": 10,
+      "spp": 512,
+      "accelerator": "bvh",
+      "display": {
+        "path": "native ImageIO::WriteImage",
+        "gamma": 2.2,
+        "encoding": "legacy power gamma, not sRGB",
+        "formula": "uint8(pow(clamp(linear,0,1),1/2.2f)*255+0.5f)",
+        "tonemap": "none",
+        "exposure_scale": 1,
+        "denoise": false,
+        "resize": false,
+        "png_compression": "native stb_image_write lossless"
+      },
+      "filter": "gaussian"
+    },
+    {
+      "scene": "matpreview-plastic",
+      "dimensions": [
+        1366,
+        1024
+      ],
+      "native_dimensions": [
+        683,
+        512
+      ],
+      "source_commit": "52c322216a1fc88fbaf1eb215308af95a9397848",
+      "renderer_sha256": "36d012835552873b909a38466e07a73143d2015cd8f5bdcf8497c2c0fb5c6d4a",
+      "native_scene_sha256": "6c4ae83954f57d66e171eddd6f1564248a05305d1ba2102fe66bd838a94abfd5",
+      "size_bytes": 2607266,
+      "sha256": "da1a0ac17c0559376f0a693d2f9e1faa7242fe5d097d08343700a6a521fcb21c",
+      "integrator": "path",
+      "spp": 512,
+      "max_depth": 10,
+      "accelerator": "bvh",
+      "filter": "gaussian",
+      "display": {
+        "path": "native ImageIO::LoadImage -> ImageIO::WriteImage",
+        "gamma": 2.2,
+        "encoding": "legacy power gamma, not sRGB",
+        "formula": "uint8(pow(clamp(linear,0,1),1/2.2f)*255+0.5f)",
+        "tonemap": "none",
+        "exposure_scale": 1,
+        "denoise": false,
+        "resize": false,
+        "png_compression": "native stb_image_write lossless"
+      },
+      "material_override": {
+        "diffuse": [
+          0.24,
+          0.771,
+          0.361
+        ],
+        "eta_inside": 1.9,
+        "eta_outside": 1.000277,
+        "nonlinear": false,
+        "specular": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "type": "plastic",
+        "material_id": "bsdf-matpreview",
+        "model": "native Mitsuba-style smooth layered Plastic",
+        "diffuse_compensation": "linear (nonlinear=false)",
+        "pixel_identical_reference_claimed": false
+      },
+      "filter_parameters": {
+        "standard_deviation": 0.5,
+        "radius": 2.0
+      },
+      "file": "matpreview-plastic-path-1366x1024-spp512-depth10.png"
+    }
+  ]
+}
